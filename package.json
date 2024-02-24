@@ -1,6 +1,6 @@
 {
-  "name": "yt-thumbnail-downloader-extension",
-  "displayName": "Yt thumbnail downloader extension",
+  "name": "youtube-thumbnail-downloader",
+  "displayName": "Youtube Thumbnail Downloader",
   "version": "0.0.1",
   "description": "Download thumbnail from youtube videos easily",
   "author": "Asif Jalil <asifjalil0@gmail.com>",
@@ -10,10 +10,10 @@
     "package": "plasmo package"
   },
   "dependencies": {
+    "@plasmohq/messaging": "^0.6.2",
     "plasmo": "0.84.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "tailwindcss": "3.4.1"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "4.1.1",
@@ -21,13 +21,24 @@
     "@types/node": "20.11.5",
     "@types/react": "18.2.48",
     "@types/react-dom": "18.2.18",
-    "postcss": "8.4.33",
     "prettier": "3.2.4",
     "typescript": "5.3.3"
   },
   "manifest": {
+    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmRc1zoCStfOAsJXAKDJxXJOJgdh/MWL8IzNA064YgdM17BCTKGysyklpLyR+Fb5pZ/p+ub/GjhWScXLKOSozcndu7yLcXMUFF8MR/mM7P1XNrnvqdztrTKzAYUbj+4t28Nx/To+2styv6arQGaoLDem3bl03tImZFAdnn/WnY6CgcUkxgXRvjtHh02n0lbIOVr+UKHPGCoHtkIiVH53ujEFwsSgbd/4IoBE57xmlFjsIhVijJI8p+w0NMmj83Cf+itsmujFNxuVi9WVFFHXROwkJvjxZzuA705v5zH+deOaXA1+eMDH8mJgi0Dz93VVgSRwYgIrF1G/jH3m6noPlbwIDAQAB",
     "host_permissions": [
-      "https://*/*"
+      "https://www.youtube.com/*"
+    ],
+    "permissions": [
+      "downloads",
+      "storage"
     ]
-  }
+  },
+  "keywords": [
+    "youtube",
+    "best",
+    "thumbnail downloader",
+    "thumbnail",
+    "youtube thumbnail downloader"
+  ]
 }

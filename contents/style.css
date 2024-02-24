@@ -1,0 +1,62 @@
+#plasmo-shadow-container {
+  position: absolute !important;
+  top: 4px;
+  left: 4px;
+}
+
+.wrapper {
+  display: flex;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.download-btn {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 32px;
+  height: 32px;
+  padding: 0 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  opacity: 0.7;
+}
+
+.wrapper:hover .download-btn {
+  opacity: 1;
+}
+
+.size-wrapper {
+  display: flex;
+  width: 0;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 6px 0px;
+  transition: width 0.3s ease;
+}
+
+.size-wrapper.open {
+  width: 226;
+}
+
+.size-btn {
+  padding: 1px 6px;
+  background-color: transparent;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  border-right: 1px solid rgba(255, 255, 255, 0.7);
+  opacity: 0.5;
+}
+
+.wrapper:hover .size-btn {
+  opacity: 1;
+}
+
+.size-btn:last-child {
+  border-right: none;
+}
