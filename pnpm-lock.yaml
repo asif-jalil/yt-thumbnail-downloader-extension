@@ -17,6 +17,9 @@ dependencies:
   react-dom:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
+  wildcard-match:
+    specifier: ^5.1.2
+    version: 5.1.2
 
 devDependencies:
   '@ianvs/prettier-plugin-sort-imports':
@@ -5647,6 +5650,10 @@ packages:
     hasBin: true
     dependencies:
       isexe: 2.0.0
+    dev: false
+
+  /wildcard-match@5.1.2:
+    resolution: {integrity: sha512-qNXwI591Z88c8bWxp+yjV60Ch4F8Riawe3iGxbzquhy8Xs9m+0+SLFBGb/0yCTIDElawtaImC37fYZ+dr32KqQ==}
     dev: false
 
   /wrap-ansi@6.2.0:

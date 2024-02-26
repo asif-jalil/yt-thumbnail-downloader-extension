@@ -10,8 +10,10 @@ import { DownloadButton } from "~components/downloadButton"
 
 import "./style.css"
 
+import wcmatch from "wildcard-match"
+
 export const config: PlasmoCSConfig = {
-  matches: ["https://www.youtube.com/watch*"]
+  matches: ["https://*.youtube.com/*"]
 }
 
 export const getRootContainer = () =>
@@ -45,7 +47,7 @@ const DetailsPage = ({ anchor }) => {
     } catch {
       console.log("video is not supported")
     }
-  }, [anchor.element])
+  }, [anchor.element, window.location.href])
 
   return (
     <div className="home-button-position">
@@ -59,8 +61,41 @@ export const render: PlasmoRender<PlasmoCSUIJSXContainer> = async ({
   createRootContainer
 }) => {
   const rootContainer = await createRootContainer()
-  const root = createRoot(rootContainer)
-  root.render(<DetailsPage anchor={anchor} />)
+
+  const config = { attributes: true, childList: true, subtree: true }
+
+  let oldUrl: string
+  let root
+
+  const callback = (mutationList, observer) => {
+    if (oldUrl !== window.location.href) {
+      oldUrl = window.location.href
+
+      const targetNode = document.querySelector(".ytp-chrome-top")
+
+      if (!root) {
+        root = createRoot(rootContainer)
+      }
+
+      const isMatch = wcmatch("https://www.youtube.com/watch*", {
+        separator: "."
+      })
+      const isMatchingUrl = isMatch(window.location.href)
+
+      if (isMatchingUrl && targetNode.children.length) {
+        root.render(<DetailsPage anchor={anchor} />)
+      } else {
+        if (root) {
+          root.unmount()
+          root = null
+        }
+      }
+    }
+  }
+
+  const observer = new MutationObserver(callback)
+
+  observer.observe(document.querySelector("body"), config)
 }
 
 export default DetailsPage

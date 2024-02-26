@@ -1,6 +1,6 @@
 export function sanitizeFilename(filename) {
   // Replace reserved characters with underscores
-  filename = filename.replace(/[\\/:"*?<>|]/g, "_")
+  filename = filename.replace(/[^0-9A-Za-z]/g, "_")
 
   // Replace whitespace with underscores
   filename = filename.replace(/\s/g, "_")
