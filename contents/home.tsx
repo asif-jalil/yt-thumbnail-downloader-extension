@@ -33,7 +33,11 @@ const HomePage = ({ anchor }) => {
       const title =
         anchor.element.parentNode.parentNode.parentNode.querySelector(
           "#video-title-link"
-        ).title
+        )?.title ||
+        anchor.element.parentNode.parentNode.parentNode.querySelector(
+          "#video-title"
+        )?.title ||
+        "Unnamed"
 
       const videoId = urlParams.get("v")
       setVideoId(videoId)
@@ -64,20 +68,29 @@ export const render: PlasmoRender<any> = async ({
   let root
 
   const callback = async (mutationList, observer) => {
-    const targetNode = document.querySelector(
+    const homeTargetNode = document.querySelector(
       "#contents.ytd-rich-grid-renderer"
+    )
+    const channelTargetNode = document.querySelector(
+      "#contents.style-scope ytd-shelf-renderer"
     )
 
     if (!root) {
       root = createRoot(rootContainer)
     }
 
-    const isMatch = wcmatch("https://www.youtube.com/", {
-      separator: "."
-    })
+    const isMatch = wcmatch(
+      ["https://www.youtube.com/", "https://www.youtube.com/@*"],
+      {
+        separator: "."
+      }
+    )
     const isMatchingUrl = isMatch(window.location.href)
 
-    if (isMatchingUrl && targetNode?.children.length) {
+    if (
+      isMatchingUrl &&
+      (homeTargetNode?.children.length || channelTargetNode?.children.length)
+    ) {
       root.render(<HomePage anchor={anchor} />)
     } else {
       if (root) {

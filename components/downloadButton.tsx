@@ -41,15 +41,15 @@ export const DownloadButton = ({ videoId, videoTitle }) => {
         <button
           className="size-btn"
           onClick={(e) => download(e, "maxresdefault")}>
-          FHD
+          HD
         </button>
         <button className="size-btn" onClick={(e) => download(e, "sddefault")}>
           SD
         </button>
-        <button className="size-btn" onClick={(e) => download(e, "hqdefault")}>
+        <button className="size-btn" onClick={(e) => download(e, "mqdefault")}>
           Medium
         </button>
-        <button className="size-btn" onClick={(e) => download(e, "mqdefault")}>
+        <button className="size-btn" onClick={(e) => download(e, "hqdefault")}>
           Normal
         </button>
         <button className="size-btn" onClick={(e) => download(e, "default")}>
