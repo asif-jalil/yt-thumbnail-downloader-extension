@@ -2,6 +2,7 @@
   position: absolute !important;
   top: 4px;
   left: 4px;
+  z-index: 999 !important;
 }
 
 .wrapper {
