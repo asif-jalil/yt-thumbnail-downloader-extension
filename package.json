@@ -1,7 +1,7 @@
 {
   "name": "youtube-thumbnail-downloader",
   "displayName": "Youtube Thumbnail Downloader",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Download thumbnail from youtube videos easily",
   "author": "Asif Jalil <asifjalil0@gmail.com>",
   "scripts": {
